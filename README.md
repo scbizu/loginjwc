@@ -19,3 +19,7 @@ ZAFU JWC的教务处登陆接口
 
 * 发Request到/jwc/code 获取一些页面信息
 * 发起POST请求的时候带上上一步返回的信息(别忘了学生帐号和密码)即可
+
+### preview
+
+You can test it at  [This Site](http://http://api.scnace.cc/jwc)
