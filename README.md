@@ -22,4 +22,4 @@ ZAFU JWC的教务处登陆接口
 
 ### preview
 
-You can test it at  [This Site](http://http://api.scnace.cc/jwc)
+You can test it at  [This Site](http://api.scnace.cc/jwc)
