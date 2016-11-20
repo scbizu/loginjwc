@@ -12,7 +12,7 @@ ZAFU JWC的教务处登陆接口
 
 |Route|Request Method|Request params|Response datatype|Response content|Others|
 |---|---|---|---|---|----|
-|/jwc/code|GET|EMPATY|JSON|{"href":"","cookie":"","VIEWSTATE":"","VIEWSTATEGENERATOR":""}|获取主页的一些必要信息|
+|/jwc/code|GET|EMPTY|JSON|{"href":"","cookie":"","VIEWSTATE":"","VIEWSTATEGENERATOR":""}|获取主页的一些必要信息|
 |/jwc/login|POST|code,stuno,passwd, VIEWSTATE,VIEWSTATEGENERATOR,cookies(which Response to U in last step)|JSON|a certain name of the student|获取学生的名字|
 
 你需要做的就是
