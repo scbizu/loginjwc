@@ -15,7 +15,7 @@ import (
 
 const (
 	//CodePath ..
-	CodePath = "/"
+	CodePath = "/jwc/"
 )
 
 //Code ...
