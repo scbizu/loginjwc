@@ -16,6 +16,7 @@ import (
 const (
 	//CodePath ..
 	CodePath = "/jwc/"
+	gate     = "http://210.33.60.5/"
 )
 
 //Code ...
@@ -41,7 +42,7 @@ func main() {
 		hash.Write([]byte(strconv.Itoa(int(t))))
 		token := hex.EncodeToString(hash.Sum(nil))
 
-		loginS := jwclogin.NewGate("http://210.33.60.8/", "")
+		loginS := jwclogin.NewGate(gate, "")
 		sp, err := loginS.Getsp()
 		if err != nil {
 			return c.JSON(403, "cannot reach to jwc .")
@@ -66,14 +67,14 @@ func main() {
 	})
 	// post data
 	e.Post("/jwc/login", func(c echo.Context) error {
-		Gate := jwclogin.NewGate("http://210.33.60.8/", "")
+		Gate := jwclogin.NewGate(gate, "")
 		code := c.FormValue("code")
 		stuno := c.FormValue("stuno")
 		passwd := c.FormValue("passwd")
 		VIEWSTATE := c.FormValue("VIEWSTATE")
 		VIEWSTATEGENERATOR := c.FormValue("VIEWSTATEGENERATOR")
 		cookie := c.FormValue("cookies")
-		if code == "" || stuno == "" || passwd == "" || VIEWSTATE == "" || VIEWSTATEGENERATOR == "" {
+		if code == "" || stuno == "" || passwd == "" || VIEWSTATE == "" {
 			return c.JSON(403, "not enough params.")
 		}
 		stu := jwclogin.NewStu(stuno, passwd, Gate)

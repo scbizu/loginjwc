@@ -16,11 +16,11 @@ import (
 
 const (
 	//模拟登陆第一个入口地址
-	loginURLGate string = "http://210.33.60.8/"
+	loginURLGate string = "http://210.33.60.5/"
 	//模拟登陆第一个入口验证码地址
-	vrcodeURLGate string = "http://210.33.60.8/CheckCode.aspx"
+	vrcodeURLGate string = "http://210.33.60.5/CheckCode.aspx"
 	//默认登录页
-	defaultURL string = "http://210.33.60.8/default2.aspx"
+	defaultURL string = "http://210.33.60.5/default2.aspx"
 )
 
 //Student structure ...
@@ -98,9 +98,11 @@ func (gate LoginGate) Getsp() (map[string]string, error) {
 
 //GetVRCode will fetch vrcode and save it ...
 func (gate LoginGate) GetVRCode(cookies []*http.Cookie, token string) {
-	// sp:=gate.Getsp()
-	// cookies := gate.ping()
-	req, _ := http.NewRequest("GET", gate.GateURL+"/CheckCode.aspx", nil)
+	gateURL, err := url.Parse(gate.GateURL)
+	if err != nil {
+		panic(err)
+	}
+	req, _ := http.NewRequest("GET", gateURL.Scheme+"://"+gateURL.Hostname()+"/CheckCode.aspx", nil)
 	for _, v := range cookies {
 		req.AddCookie(v)
 	}
